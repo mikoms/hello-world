@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>One-Page Scrolling Site</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    <style>* {
+        margin: 0;
+        box-sizing: border-box;
+    }
+        body {
+            background-color: aqua;
+        }
+        .container {
+            width: 1180px;
+            height: 4500px;
+            background-color: coral;
+            position: relative;
+            margin: 0 auto;
+            color: springgreen;
+            text-align: center;
+            padding-top: 50px;
+        }
+        nav {
+            width: 1160px;
+            height: 100px;
+            background-color: khaki;
+            margin: 0 auto;
+
+        }
+        #s1, #s3, #s5 {
+            width: 1160px;
+            height: 800px;
+            background-color: slateblue;
+            margin: 0 auto;
+        }
+    #s2, #s4 {
+        width: 1160px;
+        height: 800px;
+        background-color: darkslategray;
+        margin: 0 auto;
+    }
+        p#nav01, p#nav02, p#nav03, p#nav04, p#nav05 {
+            display: inline;
+            font-size: 24px;
+            font-family: "Avenir Next Condensed", Arial, sans-serif;
+            font-weight: bold;
+            padding: 0 25px;
+        }
+
+        a:link {
+            text-decoration: none;
+            color: mediumorchid;
+        }
+    a:visited {
+        text-decoration: none;
+        color: deeppink;
+    }
+
+    a:hover {
+        text-decoration: none;
+        color: chartreuse;
+    }
+
+    a:active {
+        text-decoration: none;
+        color: darkmagenta;
+    }
+
+
+    </style>
+</head>
+<body>
+<div class="container">
+    <nav>
+        <a href="#s1"><p id="nav01">Section 1</p></a>
+        <a href="#s2"><p id="nav02">Section 2</p></a>
+        <a href="#s3"><p id="nav03">Section 3</p></a>
+        <a href="#s4"><p id="nav04">Section 4</p></a>
+        <a href="#s5"><p id="nav05">Section 5</p></a>
+    </nav>
+
+    <section><p id="s1">SECTION 1</p></section>
+    <section><p id="s2">SECTION 2</p></section>
+    <section><p id="s3">SECTION 3</p></section>
+    <section><p id="s4">SECTION 4</p></section>
+    <section><p id="s5">SECTION 5</p></section>
+</div>
+<a href="#top"><p class="scroll">SCROLL TO TOP</p></a>
+<script>
+    $(document).ready(function(){
+// Add smooth scrolling to all links
+        $("a").on('click', function(event) {
+
+// Make sure this.hash has a value before overriding default behavior
+            if (this.hash !== "") {
+// Prevent default anchor click behavior
+                event.preventDefault();
+
+// Store hash
+                var hash = this.hash;
+
+// Using jQuery's animate() method to add smooth page scroll
+// The optional number (800) specifies the number of milliseconds it takes to scroll to the specified area
+                $('html, body').animate({
+                    scrollTop: $(hash).offset().top
+                }, 800, function(){
+
+// Add hash (#) to URL when done scrolling (default click behavior)
+                    window.location.hash = hash;
+                });
+            } // End if
+        });
+    });
+</script>
+</body>
+</html>
